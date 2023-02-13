@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Website menu 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style-header.css">
+	    <link rel="stylesheet" href="css/styles.css" />
+	    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"/>
+      	  <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+      <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container-fluid">
+	    	<a class="navbar-brand" href="index.html"> Bhuvan Earth Engine <span>NRSC</span></a>
+	    	<form action="#" class="searchform order-sm-start order-lg-last">
+          <div class="form-group d-flex">
+            <input type="text" class="form-control pl-3" placeholder="Search">
+            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+          </div>
+        </form>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse flex-grow-1 text-right" id="ftco-nav">
+	        <ul class="navbar-nav me-auto flex-nowrap">
+	        	<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+	        	<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="#">Page 1</a>
+                <a class="dropdown-item" href="#">Page 2</a>
+                <a class="dropdown-item" href="#">Page 3</a>
+                <a class="dropdown-item" href="#">Page 4</a>
+              </div>
+            </li>
+	        	<li class="nav-item"><a href="#" class="nav-link">Catalog</a></li>
+	        	<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+
+
+
+	<section class="sidebar">
+      <div class="nav-header">
+        <p class="logo">Select Study Area</p>
+        <i class="bx bx-menu btn-menu"></i>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <i class="bx bx-search search-btn"></i>
+          <input type="text" placeholder="search..." />
+          <span class="tooltip">Search</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-home-alt-2"></i>
+            <span class="title">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-phone-call"></i>
+            <span class="title">Calls</span>
+          </a>
+          <span class="tooltip">Calls</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-bookmark"></i>
+            <span class="title">Bookmarks</span>
+          </a>
+          <span class="tooltip">Bookmarks</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-wallet-alt"></i>
+            <span class="title">Wallet</span>
+          </a>
+          <span class="tooltip">Wallet</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bxs-devices"></i>
+            <span class="title">Devices</span>
+          </a>
+          <span class="tooltip">Devices</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="title">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+      </ul>
+      <div class="theme-wrapper">
+        <i class="bx bxs-moon theme-icon"></i>
+        <p>Dark Theme</p>
+        <div class="theme-btn">
+          <span class="theme-ball"></span>
+        </div>
+      </div>
+    </section>
+<section class="home">
+      
+ 
+    <div id = "map" style =  "height: calc(100% - 44px); width: 100%; position: absolute !important"></div>
+        </section>
+      <script>
+         // Creating map options
+         var mapOptions = {
+            center: [17.385044, 78.486671],
+            zoom: 10
+         }
+         // Creating a map object
+         var map = new L.map('map', mapOptions);
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         
+         // Adding layer to the map
+         map.addLayer(layer);
+         
+         // Creating a marker
+         var marker = L.marker([17.385044, 78.486671]);
+         
+         // Adding marker to the map
+         marker.addTo(map);
+      </script>
+      </script>
+
+    <script>
+      const btn_menu = document.querySelector(".btn-menu");
+      const side_bar = document.querySelector(".sidebar");
+
+      btn_menu.addEventListener("click", function () {
+        side_bar.classList.toggle("expand");
+        changebtn();
+      });
+
+      function changebtn() {
+        if (side_bar.classList.contains("expand")) {
+          btn_menu.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else {
+          btn_menu.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+      }
+
+      const btn_theme = document.querySelector(".theme-btn");
+      const theme_ball = document.querySelector(".theme-ball");
+
+      const localData = localStorage.getItem("theme");
+
+      if (localData == null) {
+        localStorage.setItem("theme", "light");
+      }
+
+      if (localData == "dark") {
+        document.body.classList.add("dark-mode");
+        theme_ball.classList.add("dark");
+      } else if (localData == "light") {
+        document.body.classList.remove("dark-mode");
+        theme_ball.classList.remove("dark");
+      }
+
+      btn_theme.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+        theme_ball.classList.toggle("dark");
+        if (document.body.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+
+
+    </script>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+
